@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const MENU_ITEMS = [
   {
     label: "SpeedMyReading",
-    href: "https://speedmyreading.oconnorworks.com",
+    href: "/speedmyreading",
   },
 ];
 
