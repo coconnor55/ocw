@@ -68,13 +68,16 @@ body {
 }
 
 .retired-shot {
-  width: min(240px, 58vw);
+  width: 66.6667vw;
   height: auto;
-  max-height: 46vh;
+  max-width: none;
+  max-height: none;
+  flex-shrink: 0;
+  aspect-ratio: 420 / 900;
   object-fit: contain;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .retired-title {

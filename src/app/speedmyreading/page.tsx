@@ -19,6 +19,7 @@ export default function SpeedMyReadingRetiredPage() {
           width={420}
           height={900}
           className="retired-shot"
+          style={{ width: "66.6667vw", height: "auto" }}
           priority
         />
       </div>
