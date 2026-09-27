@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "SpeedMyReading — Retired",
-  description: "This domain is available.",
+  description: "speedmyreading.com is available.",
 };
 
 const OCW_HOME = "https://oconnorworks.com";
@@ -14,7 +14,7 @@ export default function SpeedMyReadingRetiredPage() {
         <h1 className="retired-title">Retired</h1>
       </div>
       <div className="retired-bottom">
-        <p className="retired-sub">this domain is available</p>
+        <p className="retired-sub">speedmyreading.com is available</p>
       </div>
     </a>
   );
