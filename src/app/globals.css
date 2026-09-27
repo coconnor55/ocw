@@ -71,9 +71,8 @@ body {
   width: 66.6667vw;
   height: auto;
   max-width: none;
-  max-height: none;
   flex-shrink: 0;
-  aspect-ratio: 420 / 900;
+  aspect-ratio: 4 / 3;
   object-fit: contain;
   border: none;
   border-radius: 0;

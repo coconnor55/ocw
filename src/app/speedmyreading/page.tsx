@@ -16,10 +16,10 @@ export default function SpeedMyReadingRetiredPage() {
         <Image
           src="/speedmyreading-home.png"
           alt="SpeedMyReading home screen"
-          width={420}
-          height={900}
+          width={1024}
+          height={768}
           className="retired-shot"
-          style={{ width: "66.6667vw", height: "auto" }}
+          style={{ width: "66.6667vw", height: "auto", aspectRatio: "4 / 3", objectFit: "contain" }}
           priority
         />
       </div>
