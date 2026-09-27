@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <main className="hero">
       <Image
-        src="/ocw-hero.png"
+        src="/ocw-hero-2.webp"
         alt="O'Connor Works"
         fill
         priority
