@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "SpeedMyReading — Retired",
@@ -12,6 +13,14 @@ export default function SpeedMyReadingRetiredPage() {
     <a className="retired" href={OCW_HOME}>
       <div className="retired-top">
         <h1 className="retired-title">Retired</h1>
+        <Image
+          src="/speedmyreading-home.png"
+          alt="SpeedMyReading home screen"
+          width={420}
+          height={900}
+          className="retired-shot"
+          priority
+        />
       </div>
       <div className="retired-bottom">
         <p className="retired-sub">speedmyreading.com is available</p>

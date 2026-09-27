@@ -48,12 +48,33 @@ body {
 
 .retired-top,
 .retired-bottom {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
   text-align: center;
+}
+
+.retired-top {
+  flex: 1;
+  flex-direction: column;
+  gap: 1.35rem;
+  padding-top: 4.5rem;
+}
+
+.retired-bottom {
+  flex: 0 0 auto;
+  padding-bottom: 8vh;
+}
+
+.retired-shot {
+  width: min(240px, 58vw);
+  height: auto;
+  max-height: 46vh;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 .retired-title {
