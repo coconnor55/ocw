@@ -1,6 +1,10 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+
+const OCW_HOME = "https://oconnorworks.com";
+const RETIRED_HOST = "speedmyreading.oconnorworks.com";
 
 const MENU_ITEMS = [
   {
@@ -9,12 +13,24 @@ const MENU_ITEMS = [
   },
 ];
 
+function useIsRetiredSurface() {
+  const pathname = usePathname();
+  const [retiredHost, setRetiredHost] = useState(false);
+
+  useEffect(() => {
+    setRetiredHost(window.location.hostname === RETIRED_HOST);
+  }, []);
+
+  return pathname === "/speedmyreading" || retiredHost;
+}
+
 export function SiteMenu() {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+  const isRetired = useIsRetiredSurface();
 
   useEffect(() => {
-    if (!open) return;
+    if (!open || isRetired) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
@@ -35,35 +51,49 @@ export function SiteMenu() {
       document.removeEventListener("keydown", onKeyDown);
       document.removeEventListener("mousedown", onPointerDown);
     };
-  }, [open]);
+  }, [open, isRetired]);
 
   return (
     <div className="site-menu" ref={panelRef}>
-      <button
-        type="button"
-        className="menu-trigger"
-        aria-expanded={open}
-        aria-haspopup="true"
-        aria-label="Open menu"
-        onClick={() => setOpen((value) => !value)}
-      >
-        <span className="menu-line" />
-        <span className="menu-line" />
-        <span className="menu-line" />
-      </button>
+      {isRetired ? (
+        <a
+          className="menu-trigger"
+          href={OCW_HOME}
+          aria-label="O'Connor Works home"
+        >
+          <span className="menu-line" />
+          <span className="menu-line" />
+          <span className="menu-line" />
+        </a>
+      ) : (
+        <>
+          <button
+            type="button"
+            className="menu-trigger"
+            aria-expanded={open}
+            aria-haspopup="true"
+            aria-label="Open menu"
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span className="menu-line" />
+            <span className="menu-line" />
+            <span className="menu-line" />
+          </button>
 
-      {open && (
-        <nav className="menu-panel" aria-label="Site navigation">
-          <ul className="menu-list">
-            {MENU_ITEMS.map((item) => (
-              <li key={item.href}>
-                <a className="menu-link" href={item.href}>
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          {open && (
+            <nav className="menu-panel" aria-label="Site navigation">
+              <ul className="menu-list">
+                {MENU_ITEMS.map((item) => (
+                  <li key={item.href}>
+                    <a className="menu-link" href={item.href}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+        </>
       )}
 
       <style jsx>{`
@@ -87,6 +117,8 @@ export function SiteMenu() {
           background: rgba(0, 0, 0, 0.55);
           backdrop-filter: blur(8px);
           cursor: pointer;
+          text-decoration: none;
+          box-sizing: border-box;
         }
 
         .menu-trigger:hover {
