@@ -4,7 +4,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const OCW_HOME = "https://oconnorworks.com";
-const RETIRED_HOST = "speedmyreading.oconnorworks.com";
+const RETIRED_HOSTS = new Set([
+  "speedmyreading.oconnorworks.com",
+  "speedmyreading.com",
+  "www.speedmyreading.com",
+]);
 
 const MENU_ITEMS = [
   {
@@ -18,7 +22,7 @@ function useIsRetiredSurface() {
   const [retiredHost, setRetiredHost] = useState(false);
 
   useEffect(() => {
-    setRetiredHost(window.location.hostname === RETIRED_HOST);
+    setRetiredHost(RETIRED_HOSTS.has(window.location.hostname));
   }, []);
 
   return pathname === "/speedmyreading" || retiredHost;

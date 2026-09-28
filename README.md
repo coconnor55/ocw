@@ -4,10 +4,10 @@ Apex landing site for [oconnorworks.com](https://oconnorworks.com).
 
 - Full-screen OCW hero image
 - Hamburger menu → SpeedMyReading retired page (`/speedmyreading`)
-- Host rewrite: `speedmyreading.oconnorworks.com` → same retired page
+- Host rewrite: `speedmyreading.oconnorworks.com`, `speedmyreading.com`, `www.speedmyreading.com` → same retired page
 - Deployed on Vercel project **ocw**
 
-After shipping this route, add domain `speedmyreading.oconnorworks.com` on the **ocw** Vercel project and CNAME DNS to Vercel (see SpeedMyReading `docs/public-url-retirement.md`).
+Add those hostnames on the **ocw** Vercel project and point DNS to Vercel (see SpeedMyReading `docs/public-url-retirement.md`).
 
 ## Develop
 
