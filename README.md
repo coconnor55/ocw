@@ -3,11 +3,13 @@
 Apex landing site for [oconnorworks.com](https://oconnorworks.com).
 
 - Full-screen OCW hero image
-- Hamburger menu → SpeedMyReading retired page (`/speedmyreading`)
-- Host rewrite: `speedmyreading.oconnorworks.com`, `speedmyreading.com`, `www.speedmyreading.com` → same retired page
+- Hamburger menu → retired pages: SpeedMyReading (`/speedmyreading`), Battle for the Oceans (`/battlefortheoceans`)
+- Host rewrite → matching retired page:
+  - `speedmyreading.oconnorworks.com`, `speedmyreading.com`, `www.speedmyreading.com`
+  - `battlefortheoceans.com`, `www.battlefortheoceans.com`
 - Deployed on Vercel project **ocw**
 
-Add those hostnames on the **ocw** Vercel project and point DNS to Vercel (see SpeedMyReading `docs/public-url-retirement.md`).
+Add those hostnames on the **ocw** Vercel project and point DNS to Vercel (see SpeedMyReading `docs/public-url-retirement.md` for the SMR cutover pattern).
 
 ## Develop
 

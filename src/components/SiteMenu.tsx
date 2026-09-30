@@ -2,30 +2,28 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import {
+  isRetiredHost,
+  isRetiredRoute,
+  RETIRED_SITES,
+} from "../lib/retiredSites";
 
 const OCW_HOME = "https://oconnorworks.com";
-const RETIRED_HOSTS = new Set([
-  "speedmyreading.oconnorworks.com",
-  "speedmyreading.com",
-  "www.speedmyreading.com",
-]);
 
-const MENU_ITEMS = [
-  {
-    label: "SpeedMyReading",
-    href: "/speedmyreading",
-  },
-];
+const MENU_ITEMS = RETIRED_SITES.map((site) => ({
+  label: site.label,
+  href: site.route,
+}));
 
 function useIsRetiredSurface() {
   const pathname = usePathname();
   const [retiredHost, setRetiredHost] = useState(false);
 
   useEffect(() => {
-    setRetiredHost(RETIRED_HOSTS.has(window.location.hostname));
+    setRetiredHost(isRetiredHost(window.location.hostname));
   }, []);
 
-  return pathname === "/speedmyreading" || retiredHost;
+  return isRetiredRoute(pathname) || retiredHost;
 }
 
 export function SiteMenu() {
